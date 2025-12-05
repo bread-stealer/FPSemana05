@@ -33,7 +33,10 @@ class ContaBancaria:
     # levantar(valor): Subtrai o valor passado do saldo da conta, se o valor for menor ou igual ao saldo disponível, considerando o limite de crédito.
     # Se a operação for bem-sucedida, imprime 1; caso contrário, imprime 0.
     def levantar(self, valor):
-        if valor <= self.saldo + self.limite:
+        if valor <= 0:
+            print(0)
+            
+        elif (self.saldo + self.limite) - valor >= 0:
             self.saldo -= valor
             print(1)
         else:
@@ -45,7 +48,7 @@ class ContaBancaria:
 
     # exibir_info(): Imprime as informações da conta no formato: "[titular] [saldo] [limite]".
     def exibir_info(self):
-        print(f"[{self.titular}]", f"[{self.saldo}]", f"[{self.limite}]")
+        print(f"[{self.titular}] [{self.saldo}] [{self.limite}]")
 
 
 if __name__ == "__main__":

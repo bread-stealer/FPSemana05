@@ -1,0 +1,17 @@
+# Python
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Virtual Environments (If you use them)
+.venv/
+venv/
+env/
+
+# Git
+.git

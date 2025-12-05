@@ -1,23 +1,17 @@
 # Adicione ao repositório o script banco.py (no Moodle) e implemente a classContaBancaria:
 
 # Atributos:
-# - titular: O nome do titular da conta (string).
-# - saldo: O saldo da conta (float).
-# - limite: O limite de crédito da conta (float).
+# > titular: O nome do titular da conta (string).
+# > saldo: O saldo da conta (float).
+# > limite: O limite de crédito da conta (float).
 
 # Métodos:
-# - __init__(titular, saldo, limite): Inicializa os atributos da classe.
-# - depositar(valor): Adiciona o valor passado ao saldo da conta. Se o valor for positivo, imprime 1; caso contrário, imprime 0.
-# - levantar(valor): Subtrai o valor passado do saldo da conta, se o valor for menor ou igual ao saldo disponível, considerando o limite de crédito.
-# Se a operação for bem-sucedida, imprime 1; caso contrário, imprime 0.
-# - exibir_saldo(): Imprime o saldo atual da conta com duas casas decimais.
-# - exibir_info(): Imprime as informações da conta no formato: "[titular] [saldo] [limite]".
-
-
-# SELF NOTE: Não é possível guardar o valor, "fazer stored", do saldo para ser utilizado em várias runs.
-#   - SIDE NOTE: Uma run é equivalente a "python banco.py -A depositar";
-#   - SIDE NOTE: "python banco.py -A depositar -V 100 ; python banco.py -A saldo" na mesma linha de bash são duas runs;
-#Para o valor ficar guardado, seria necessário criar um ficheiro externo de armazenamento persistente ou criar novos métodos, não seguindo o enunciado).
+# > __init__(titular, saldo, limite): Inicializa os atributos da classe.
+# > depositar(valor): Adiciona o valor passado ao saldo da conta. Se o valor for positivo, imprime 1; caso contrário, imprime 0.
+# > levantar(valor): Subtrai o valor passado do saldo da conta, se o valor for menor ou igual ao saldo disponível, considerando o limite de crédito.
+#       Se a operação for bem-sucedida, imprime 1; caso contrário, imprime 0.
+# > exibir_saldo(): Imprime o saldo atual da conta com duas casas decimais.
+# > exibir_info(): Imprime as informações da conta no formato: "[titular] [saldo] [limite]".
 
 
 import argparse

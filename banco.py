@@ -1,6 +1,7 @@
 # Adicione ao repositório o script banco.py (no Moodle) e implemente a classContaBancaria:
+
 # Atributos:
-# - titular: O nome do titular da conta (string).´
+# - titular: O nome do titular da conta (string).
 # - saldo: O saldo da conta (float).
 # - limite: O limite de crédito da conta (float).
 
@@ -13,38 +14,44 @@
 # - exibir_info(): Imprime as informações da conta no formato: "[titular] [saldo] [limite]".
 
 
+# SELF NOTE: Não é possível guardar o valor, "fazer stored", do saldo para ser utilizado em várias runs.
+#   - SIDE NOTE: Uma run é equivalente a "python banco.py -A depositar";
+#   - SIDE NOTE: "python banco.py -A depositar -V 100 ; python banco.py -A saldo" na mesma linha de bash são duas runs;
+#Para o valor ficar guardado, seria necessário criar um ficheiro externo de armazenamento persistente ou criar novos métodos, não seguindo o enunciado).
+
+
 import argparse
 
 
 class ContaBancaria:
     def __init__(self, titular, saldo, limite):
-        self.titular = titular
-        self.saldo = saldo
-        self.limite = limite
+        self.titular = str(titular)
+        self.saldo = float(saldo)
+        self.limite = float(limite)
 
     def depositar(self, valor):
-            if valor > 0:
-                self.saldo += valor
-                print(1)
-            else:
-                print(0)
+        if valor > 0:
+            self.saldo += valor
+            print(1)
+        else:
+            print(0)
 
-        # levantar(valor): Subtrai o valor passado do saldo da conta, se o valor for menor ou igual ao saldo disponível, considerando o limite de crédito.
-        # Se a operação for bem-sucedida, imprime 1; caso contrário, imprime 0.
+    # levantar(valor): Subtrai o valor passado do saldo da conta, se o valor for menor ou igual ao saldo disponível, considerando o limite de crédito.
+    # Se a operação for bem-sucedida, imprime 1; caso contrário, imprime 0.
     def levantar(self, valor):
-            if valor <= self.saldo + self.limite:
-                self.saldo -= valor
-                print(1)
-            else:
-                print(0)
+        if valor <= self.saldo + self.limite:
+            self.saldo -= valor
+            print(1)
+        else:
+            print(0)
 
-        # exibir_saldo(): Imprime o saldo atual da conta com duas casas decimais.
+    # exibir_saldo(): Imprime o saldo atual da conta com duas casas decimais.
     def exibir_saldo(self):
-            print(f"{self.saldo:.2f}")
+        print(f"{self.saldo:.2f}")
 
-        # exibir_info(): Imprime as informações da conta no formato: "[titular] [saldo] [limite]".
+    # exibir_info(): Imprime as informações da conta no formato: "[titular] [saldo] [limite]".
     def exibir_info(self):
-            print(f"{self.titular} {self.saldo} {self.limite}")
+        print(f"[{self.titular}]", f"[{self.saldo}]", f"[{self.limite}]")
 
 
 if __name__ == "__main__":

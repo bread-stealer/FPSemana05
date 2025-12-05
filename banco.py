@@ -35,10 +35,11 @@ class ContaBancaria:
     def levantar(self, valor):
         if valor <= 0:
             print(0)
-            
-        elif (self.saldo + self.limite) - valor >= 0:
+
+        elif valor <= self.saldo + self.limite:
             self.saldo -= valor
             print(1)
+
         else:
             print(0)
 
